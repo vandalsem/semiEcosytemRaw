@@ -5,25 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='slate.min.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='kyleIcon.png') }}" type="image/png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <style>
         body {
             margin: 20px;
         }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-image {
+            width: 71.04px;
+            margin-left: 52px;
+        }
     </style>
 
 </head>
 <body>
-    <div class="container text-center">
+    <div class="container text-center header-container">
         <h1 class="my-1">Semi Ecosystem</h1>
+        <img src="{{ url_for('static', filename='kyleIcon.png') }}" alt="Image" class="header-image">
     </div>
     {% if companies %}
         {% set unique_subsectors = companies|map(attribute='subSector')|unique %}
         {% for subsector in unique_subsectors %}
             <h3 class="my-2">{{ subsector }}</h3>
             {% if subsector not in ['IDM','Design'] %}
-                {% set columns = ['Ticker','Name','Country','Market Cap','Total Return (YTD)','Total Revenues (LTM)','Net EPS - Diluted (LTM)','FCF (LTM)','FCF/Share (LTM)','Next Earnings (Date)'] %}
+                {% set columns = ['Ticker','Name','Country','Market Cap','Total Return (YTD)','Total Revenues (LTM)','FCF (LTM)','FCF/Share (LTM)','PEG (NTM)','P/E (LTM)','Fwd P/E (NTM)'] %}
                 {% set class = 'table table-hover sectorTable' %}
             {% else %}
                 {% set class = 'table table-hover chipTable' %}
@@ -31,7 +42,6 @@
             <table class="{{ class }}">
                 <thead>
                     <tr>
-
                         {% for col in columns %}
                             <th scope="col">{{ col }}</th>
                         {% endfor %}
@@ -74,8 +84,6 @@
                                 <td data-order="{{company['Total Revenues (LTM)'] }}">${{ company['Total Revenues (LTM)'] }}m</td>
                             {% endif %}
 
-                            <td>{{ company['Net EPS - Diluted (LTM)']}}</td>
-
                             {% if (company['FCF (LTM)']|string)|length>=6 %}
                                 <td data-order="{{ company['FCF (LTM)'] }}">${{ (company['FCF (LTM)']/1000)|round(2) }}b</td>
                             {% else %}
@@ -83,7 +91,10 @@
                             {% endif %}
 
                             <td>{{ company['FCF / Share (LTM)'] }}</td>
-                            <td data-order="{{ company['ISO Earnings'] }}">{{ company['Next Earnings (Date)'] }}</td>
+                            <td>{{ company['PEG (NTM)'] }}</td>
+                            <td>{{ company['P/E (LTM)'] }}</td>
+                            <td>{{ company['P/E (NTM)'] }}</td>
+                            
 
                         </tr>
                     {% endfor %}

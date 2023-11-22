@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     companies = get_data()
-    columns = 'Symbol,Name,Ctry,Primary Chip,Market Cap,Total Return (YTD),Revenues (LTM),Diluted EPS (LTM),FCF (LTM),FCF/Share (LTM),Next Earnings'.split(',')
+    columns = 'Symbol,Name,Ctry,Primary Chip,Market Cap,Total Return (YTD),Revenues (LTM),FCF (LTM),FCF/Share (LTM),PEG (NTM),P/E (LTM),Fwd P/E (NTM)'.split(',')
     return render_template('index.html', companies=companies,columns=columns)
 
 # Helpers
@@ -15,7 +15,7 @@ def get_data():
     companies = pd.read_csv('data/subsector_semis.csv',keep_default_na=False)
     company_data = pd.read_csv('data/comp_daily_update.csv',keep_default_na=False)
 
-    company_data = company_data.drop(columns='Name,Last Price,1-Day %,Beta (2Y),Revenues - Est Avg (NTM),FCF - Est Avg (FY1E),Country,Next Earnings (When)'.split(','))
+    company_data = company_data.drop(columns='Name,Last Price,1-Day %,Beta (2Y),Revenues - Est Avg (NTM),FCF - Est Avg (FY1E),Country,Next Earnings (When),Net EPS - Diluted (LTM),Next Earnings (When)'.split(','))
 
     companies = companies.merge(company_data,how='left',on='Ticker')
     
