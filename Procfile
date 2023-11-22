@@ -1,1 +1,1 @@
-web: gunicorn semiHeatMap:app
+web: gunicorn --bind 0.0.0.0:$PORT semiHeatMap:app
