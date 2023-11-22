@@ -7,7 +7,7 @@ Ticker,Name,Country,subSector,subSectorB,fabType,fabTypeB,yahooLink
 4063,Shin-Etsu Chemical Co. Ltd.,JP,Materials,,,,https://finance.yahoo.com/quote/4063.T?p=4063.T&.tsrc=fin-srch
 6488,GlobalWafers Co. Ltd.,TW,Materials,,,,https://finance.yahoo.com/quote/6488.TWO?p=6488.TWO&.tsrc=fin-srch
 600584,JCET Group Co. Ltd.,CN,TPA,,,,https://finance.yahoo.com/quote/600584.SS?p=600584.SS&.tsrc=fin-srch
-A000660,SK hynix Inc.,JP,Design,,Memory,,https://finance.yahoo.com/quote/000660.KS?p=000660.KS&.tsrc=fin-srch
+A000660,SK hynix Inc.,JP,IDM,,Memory,,https://finance.yahoo.com/quote/000660.KS?p=000660.KS&.tsrc=fin-srch
 A005930,Samsung Electronics Co. Ltd.,KR,IDM,,Memory,,https://finance.yahoo.com/quote/005930.KS?p=005930.KS&.tsrc=fin-srch
 ACLS,Axcelis Technologies Inc.,US,Equipment,,,,
 ADI,Analog Devices Inc.,US,Design,,Analog,,
@@ -44,7 +44,7 @@ SNPS,Synopsys Inc.,US,EDA,,,,
 STM,STMicroelectronics N.V.,CH,IDM,,Analog,,
 SWKS,Skyworks Solutions Inc.,US,IDM,,Analog,,
 TER,Teradyne Inc.,US,TPA,,,,
-TSM,Taiwan Semiconductor Manufacturing Company Limited,TW,Fabrication,,,,
+TSM,Taiwan Semiconductor Manufacturing Co.,TW,Fabrication,,,,
 TXN,Texas Instruments Incorporated,US,IDM,,Analog,,
 WAF,Siltronic AG,DE,Materials,,,,https://finance.yahoo.com/quote/WAF.DE?p=WAF.DE&.tsrc=fin-srch
 WCH,Wacker Chemie AG,DE,Materials,,,,https://finance.yahoo.com/quote/WCH.DE?p=WCH.DE&.tsrc=fin-srch

@@ -35,4 +35,4 @@ def get_data():
     return companies
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
