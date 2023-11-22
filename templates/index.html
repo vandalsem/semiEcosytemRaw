@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Semi Ecosystem</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='slate.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            margin: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="my-1">Semi Ecosystem</h1>
+    </div>
+    {% if companies %}
+        {% set unique_subsectors = companies|map(attribute='subSector')|unique %}
+        {% for subsector in unique_subsectors %}
+            <h3 class="my-2">{{ subsector }}</h3>
+            {% if subsector not in ['IDM','Design'] %}
+                {% set columns = ['Ticker','Name','Country','Market Cap','Total Return (YTD)','Total Revenues (LTM)','Net EPS - Diluted (LTM)','FCF (LTM)','FCF / Share (LTM)','Next Earnings (Date)'] %}
+                {% set class = 'table table-hover sectorTable' %}
+            {% else %}
+                {% set class = 'table table-hover chipTable' %}
+            {% endif %}
+            <table class="{{ class }}">
+                <thead>
+                    <tr>
+
+                        {% for col in columns %}
+                            <th scope="col">{{ col }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for company in companies if company['subSector'] == subsector %}
+                        <tr>
+                            <td><a href="{{ company['yahooLink'] }}" target="_blank">{{ company['Ticker'] }}</a></td>
+                            <td>{{ company['Name'] }}</td>
+                            <td>{{ company['Country'] }}</td>
+
+                            {% if subsector in ['IDM','Design'] %}
+                                <td data-order="{{ company['fabType'] }}">{{ company['fabType'] }}</td>
+                            {% endif %}
+
+                            {% if company['Market Cap']>=1000000 %}
+                                <td data-order="{{ company['Market Cap'] }}">${{ (company['Market Cap']/1000000)|round(2) }}t</td>
+                            {% elif company['Market Cap']>=1000 %}
+                                <td data-order="{{ company['Market Cap'] }}">${{ (company['Market Cap']/1000)|round(2) }}b</td>
+                            {% elif company['Market Cap']>=100 %}
+                                <td data-order="{{ company['Market Cap'] }}">${{ (company['Market Cap']/100)|round(2)}}m</td>
+                            {% else %}
+                                <td data-order="{{ company['Market Cap'] }}">${{ company['Market Cap'] }}</td>
+                            {% endif %}
+
+                            {% if company['Total Return (YTD)'] == '' %}
+                                <td>{{ company['Total Return (YTD)'] }}</td>
+                            {% else %}
+                                {% if company['Total Return (YTD)']|float>=0 %}
+                                    <td class="text-success" data-order="{{ company['Total Return (YTD)'] }}">{{ company['Total Return (YTD)'] }}%</td>
+                                {% else %}
+                                    <td class="text-danger" data-order="{{ company['Total Return (YTD)'] }}">{{ company['Total Return (YTD)'] }}%</td>
+                                {% endif %}
+                            {% endif %}
+
+                            {% if company['Total Revenues (LTM)']>=1000 %}
+                                <td data-order="{{ company['Total Revenues (LTM)'] }}">${{ (company['Total Revenues (LTM)']/1000)|round(2) }}b</td>
+                            {% else %}
+                                <td data-order="{{company['Total Revenues (LTM)'] }}">${{ company['Total Revenues (LTM)'] }}m</td>
+                            {% endif %}
+
+                            <td>{{ company['Net EPS - Diluted (LTM)']}}</td>
+
+                            {% if (company['FCF (LTM)']|string)|length>=6 %}
+                                <td data-order="{{ company['FCF (LTM)'] }}">${{ (company['FCF (LTM)']/1000)|round(2) }}b</td>
+                            {% else %}
+                                <td data-order="{{ company['FCF (LTM)'] }}">${{ company['FCF (LTM)'] }}m</td>
+                            {% endif %}
+
+                            <td>{{ company['FCF / Share (LTM)'] }}</td>
+                            <td data-order="{{ company['ISO Earnings'] }}">{{ company['Next Earnings (Date)'] }}</td>
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    {% else %}
+        <p>No data available</p>
+    {% endif %}
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+    <script>
+        console.log({{companies[0]['yahooLink']}})
+        $(document).ready(function() {
+            $('.sectorTable').DataTable(
+                {"searching": false, "paging": false,"order": [[3, "desc" ]],"bInfo": false}
+            );
+            $('.chipTable').DataTable(
+                {"searching": false, "paging": false,"order": [[4, "desc" ]],"bInfo": false}
+            );
+        });
+    </script>
+</body>
+</html>
