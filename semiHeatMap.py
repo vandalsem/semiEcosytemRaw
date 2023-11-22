@@ -1,6 +1,4 @@
 from flask import Flask, render_template
-import requests
-from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 
@@ -37,4 +35,4 @@ def get_data():
     return companies
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
