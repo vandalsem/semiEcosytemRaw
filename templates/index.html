@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='slate.min.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='kyleIcon.png') }}" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='cpu.png') }}" type="image/png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <style>
@@ -18,8 +18,8 @@
             justify-content: center;
         }
         .header-image {
-            width: 71.04px;
-            margin-left: 52px;
+            width: 60px; /* Adjust the width as needed */
+            margin-left: 44.1px; /* Adjust the margin as needed */
         }
     </style>
 
@@ -27,7 +27,7 @@
 <body>
     <div class="container text-center header-container">
         <h1 class="my-1">Semi Ecosystem</h1>
-        <img src="{{ url_for('static', filename='kyleIcon.png') }}" alt="Image" class="header-image">
+        <img src="{{ url_for('static', filename='cpu.png') }}" alt="Image" class="header-image">
     </div>
     {% if companies %}
         {% set unique_subsectors = companies|map(attribute='subSector')|unique %}
