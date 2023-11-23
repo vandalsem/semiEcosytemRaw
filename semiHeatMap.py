@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     companies = get_data()
-    columns = 'Symbol,Name,Ctry,Primary Chip,Market Cap,Total Return (YTD),Revenues (LTM),FCF (LTM),FCF/Share (LTM),PEG (NTM),P/E (LTM),Fwd P/E (NTM)'.split(',')
+    columns = 'Symbol,Name,Ctry,Primary Chip,Market Cap,EV/EBITDA (LTM),Total Return (YTD),Revenues (LTM),FCF (LTM),FCF/Share (LTM),P/E (LTM),PEG (NTM)'.split(',')
     return render_template('index.html', companies=companies,columns=columns)
 
 # Helpers
