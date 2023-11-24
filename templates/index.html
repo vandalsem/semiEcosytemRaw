@@ -13,9 +13,25 @@
             margin: 20px;
         }
 
+
         .header-container {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            margin: auto;
+        }
+        h1 {
+            font-size: 300%;
+            margin: 10px;
+        }
+        .container-title {
+            border-bottom: solid 2px ;
+        }
+        .container-quote {
+            display: block;
+            font-size: 200%;
+            margin: 2px;
             justify-content: space-between;
             flex-direction: column;
             margin: auto;
@@ -51,12 +67,48 @@
         .description {
             font-size: 75%;
             text-align: left;
+            --widthA: 70px;
+            width: var(--widthA);
+            height: calc(width / 1.3605);
+            /* 1.3605 ration */
+        }
+        .quote-data *{
+            display: inline-block;
+
+        }
+        .quote-price {
+            font-size: 150%;
+        }
+        .quote-change {
+            font-size: 100%;
+        }
+        .description {
+            font-size: 75%;
+            text-align: left;
         }
     </style>
 
 </head>
 <body>
     <div class="container text-center header-container">
+        <div class="container-title">
+            <h1 class="my-3">
+                Semi Ecosystem
+            </h1>
+        </div>
+        <div class="container-quote my-3">
+            <div class="description">
+                PHLX Semiconductor Index (<a class="href = "https://finance.yahoo.com/quote/%5ESOX?p=^SOX&.tsrc=fin-srch" target="_blank" class="text-secondary-emphasis">SOX</a>)
+            </div>
+            <div class="quote-data">
+                <div class="quote-price text-light">{{ (sox_quote[0]|float)|round(2) }}</div>
+                {% if sox_quote[1][0] == '+' %}
+                    <div class="quote-change text-success">{{ sox_quote[1] }} {{ sox_quote[2] }}</div>
+                {% else %}
+                    <div class="quote-change text-danger">{{ sox_quote[1] }} {{ sox_quote[2] }}</div>
+                {% endif %}
+            </div>
+        </div>
         <div class="container-title">
             <h1 class="my-3">
                 Semi Ecosystem
