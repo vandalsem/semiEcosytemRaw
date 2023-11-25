@@ -112,7 +112,7 @@
         {% for subsector in unique_subsectors %}
             <h3 class="my-2">{{ subsector }}</h3>
             {% if subsector not in ['IDM','Design'] %}
-                {% set columns = ['Ticker','Name','Country','Market Cap','EV/EBITDA (LTM)','Total Return (YTD)','Total Revenues (LTM)','FCF (LTM)','FCF/Share (LTM)','P/E (LTM)','PEG (NTM)'] %}
+                {% set columns = ['Ticker','Name','Country','Market Cap','Total Return (YTD)','Total Revenues (LTM)','EV/Revenue (LTM)','FCF (LTM)','FCF/Share (LTM)','P/E (LTM)','PEG (NTM)'] %}
                 {% set class = 'table table-hover sectorTable' %}
             {% else %}
                 {% set class = 'table table-hover chipTable' %}
@@ -144,8 +144,7 @@
                                 <td data-order="{{ company['Market Cap'] }}">${{ (company['Market Cap']/100)|round(2)}}m</td>
                             {% else %}
                                 <td data-order="{{ company['Market Cap'] }}">${{ company['Market Cap'] }}</td>
-                            {% endif %}
-                            <td>{{ company['EV/EBITDA (LTM)'] }}</td>   
+                            {% endif %} 
                             {% if company['Total Return (YTD)'] == '' %}
                                 <td>{{ company['Total Return (YTD)'] }}</td>
                             {% else %}
@@ -161,6 +160,8 @@
                             {% else %}
                                 <td data-order="{{company['Total Revenues (LTM)'] }}">${{ company['Total Revenues (LTM)'] }}m</td>
                             {% endif %}
+
+                            <td>{{ company['EV/Sales (LTM)'] }}</td>  
 
                             {% if (company['FCF (LTM)']|string)|length>=6 %}
                                 <td data-order="{{ company['FCF (LTM)'] }}">${{ (company['FCF (LTM)']/1000)|round(2) }}b</td>

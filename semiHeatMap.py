@@ -10,7 +10,7 @@ app = Flask(__name__)
 def index():
     companies = get_data()
     sox_quote = get_sox()
-    columns = 'Symbol,Name,Ctry,Primary Chip,Market Cap,EV/EBITDA (LTM),Total Return (YTD),Revenues (LTM),FCF (LTM),FCF/Share (LTM),P/E (LTM),PEG (NTM)'.split(',')
+    columns = 'Symbol,Name,Ctry,Primary Chip,Market Cap,Total Return (YTD),Revenues (LTM),EV/Revenue (LTM),FCF (LTM),FCF/Share (LTM),P/E (LTM),PEG (NTM)'.split(',')
     return render_template('index.html', companies=companies,columns=columns,sox_quote=sox_quote)
 
 # Helpers
