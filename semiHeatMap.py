@@ -35,10 +35,7 @@ def get_data():
     companies['ISO Earnings'] = pd.to_datetime(companies['Next Earnings (Date)']).dt.strftime('%Y%m%d')
 
     def total_return(row):
-        if row['Total Return (YTD)'] == '':
-            return ''
-        else:
-            return round((float(row['Total Return (YTD)'])*100),2)
+        return '' if row['Total Return (YTD)'] == '' else round((float(row['Total Return (YTD)'])*100),2)
     
     companies['Total Return (YTD)'] = companies.apply(total_return,axis=1)
 
