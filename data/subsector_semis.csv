@@ -1,4 +1,5 @@
 Ticker,Name,Country,subSector,subSectorB,fabType,fabTypeB,yahooLink
+2303,United Microelectronics Corporation,TW,Materials,,,,
 2354,"Foxconn Technology Co., Ltd.",TW,TPA,,,,https://finance.yahoo.com/quote/2354.TW?p=2354.TW&.tsrc=fin-srch
 2357,ASUSTeK Computer Inc.,TW,IDM,,GPU,,https://finance.yahoo.com/quote/2357.TW?p=2357.TW&.tsrc=fin-srch
 2454,MediaTek Inc.,TW,IDM,,ASIC,,https://finance.yahoo.com/quote/2454.TW?p=2454.TW&.tsrc=fin-srch
@@ -6,7 +7,12 @@ Ticker,Name,Country,subSector,subSectorB,fabType,fabTypeB,yahooLink
 3711,ASE Technology Holding Co. Ltd.,TW,TPA,,,,https://finance.yahoo.com/quote/3711.TW?p=3711.TW&.tsrc=fin-srch
 4063,Shin-Etsu Chemical Co. Ltd.,JP,Materials,,,,https://finance.yahoo.com/quote/4063.T?p=4063.T&.tsrc=fin-srch
 6488,GlobalWafers Co. Ltd.,TW,Materials,,,,https://finance.yahoo.com/quote/6488.TWO?p=6488.TWO&.tsrc=fin-srch
+6723,Renesas Electronics,JP,IDM,,ASIC,,https://finance.yahoo.com/quote/6723.T?p=6723.T&.tsrc=fin-srch
+6857,Advantest Corporation,JP,TPA,,,,https://finance.yahoo.com/quote/ATEYY?p=ATEYY&.tsrc=fin-srch
+6920,Lasertec Corporation,JP,Equipment,,,,https://finance.yahoo.com/quote/6920.T?p=6920.T&.tsrc=fin-srch
+8035,Tokyo Electron Limited,JP,Equipment,,,,https://finance.yahoo.com/quote/8035.T?p=8035.T&.tsrc=fin-srch
 600584,JCET Group Co. Ltd.,CN,TPA,,,,https://finance.yahoo.com/quote/600584.SS?p=600584.SS&.tsrc=fin-srch
+688981,SMIC,CN,Fabrication,,,,https://finance.yahoo.com/quote/0981.HK?p=0981.HK&.tsrc=fin-srch
 A000660,SK hynix Inc.,JP,IDM,,Memory,,https://finance.yahoo.com/quote/000660.KS?p=000660.KS&.tsrc=fin-srch
 A005930,Samsung Electronics Co. Ltd.,KR,IDM,,Memory,,https://finance.yahoo.com/quote/005930.KS?p=005930.KS&.tsrc=fin-srch
 ACLS,Axcelis Technologies Inc.,US,Equipment,,,,
@@ -39,7 +45,6 @@ ON,ON Semiconductor Corporation,US,Design,,Analog,,
 QCOM,QUALCOMM Incorporated,US,Design,,SoC,,
 QRVO,Qorvo Inc.,US,Design,,Analog,,
 RMBS,Rambus Inc.,US,Design,,Memory,,
-688981,SMIC,CN,Fabrication,,,,https://finance.yahoo.com/quote/0981.HK?p=0981.HK&.tsrc=fin-srch
 SNPS,Synopsys Inc.,US,EDA,,,,
 STM,STMicroelectronics N.V.,CH,IDM,,Analog,,
 SWKS,Skyworks Solutions Inc.,US,IDM,,Analog,,
@@ -49,8 +54,3 @@ TXN,Texas Instruments Incorporated,US,IDM,,Analog,,
 WAF,Siltronic AG,DE,Materials,,,,https://finance.yahoo.com/quote/WAF.DE?p=WAF.DE&.tsrc=fin-srch
 WCH,Wacker Chemie AG,DE,Materials,,,,https://finance.yahoo.com/quote/WCH.DE?p=WCH.DE&.tsrc=fin-srch
 WOLF,Wolfspeed Inc.,US,Materials,,,,
-8035,Tokyo Electron Limited,JP,Equipment,,,,https://finance.yahoo.com/quote/8035.T?p=8035.T&.tsrc=fin-srch
-6723,Renesas Electronics,JP,IDM,,ASIC,,https://finance.yahoo.com/quote/6723.T?p=6723.T&.tsrc=fin-srch
-6857,Advantest Corporation,JP,TPA,,,,https://finance.yahoo.com/quote/ATEYY?p=ATEYY&.tsrc=fin-srch
-2303,United Microelectronics Corporation,TW,Materials,,,,
-6920,Lasertec Corporation,JP,Equipment,,,,https://finance.yahoo.com/quote/6920.T?p=6920.T&.tsrc=fin-srch
